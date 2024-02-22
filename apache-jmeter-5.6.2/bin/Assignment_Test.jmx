@@ -10,6 +10,14 @@
       </elementProp>
     </TestPlan>
     <hashTree>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">testslotegrator.com</stringProp>
+        <stringProp name="HTTPSampler.protocol">https</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="MAIN_TXN_UTG" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="1827126048">
@@ -45,7 +53,7 @@
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Authorization</stringProp>
-              <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNlcmdoZWkuc2Ftb2lsaWNAZ21haWwuY29tIiwiaWQiOiI2NWQ2MDhiYzg4ZjZjMjNlZGNkNjRkNzYiLCJyb2xlIjoiOGY5YmZlOWQxMzQ1MjM3Y2IzYjJiMjA1ODY0ZGEwNzUiLCJwb3NpdGlvbiI6ImYxOWRiZjJlZGIzYTBiZDc0YjA1MjRkOTYwZmYyMWViIiwiaWF0IjoxNzA4NTI2MjIwLCJleHAiOjE3MDg2MTI2MjB9._JJOoH4Ambgd4SCb0M0zhFZdkW4ksteAnh9CO6Q0tls</stringProp>
+              <stringProp name="Header.value">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNlcmdoZWkuc2Ftb2lsaWNAZ21haWwuY29tIiwiaWQiOiI2NWQ2MDhiYzg4ZjZjMjNlZGNkNjRkNzYiLCJyb2xlIjoiOGY5YmZlOWQxMzQ1MjM3Y2IzYjJiMjA1ODY0ZGEwNzUiLCJwb3NpdGlvbiI6ImYxOWRiZjJlZGIzYTBiZDc0YjA1MjRkOTYwZmYyMWViIiwiaWF0IjoxNzA4NjE5MzU4LCJleHAiOjE3MDg3MDU3NTh9.bMV9Mo8vrve2xj-pgkyirPPPKxSkGI1kKeu69d9OZVk </stringProp>
             </elementProp>
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">accept</stringProp>
@@ -58,23 +66,61 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">testslotegrator.com</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-        </ConfigTestElement>
-        <hashTree/>
         <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments">
             <elementProp name="email" elementType="Argument">
               <stringProp name="Argument.name">email</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.value">&quot;test@mail.ru&quot;</stringProp>
+              <stringProp name="Argument.value">serghei.samoilic@gmail.com</stringProp>
+            </elementProp>
+            <elementProp name="password" elementType="Argument">
+              <stringProp name="Argument.name">password</stringProp>
+              <stringProp name="Argument.value">77pQ0b7RG1Te</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="name" elementType="Argument">
+              <stringProp name="Argument.name">name</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.value">AnyName</stringProp>
+            </elementProp>
+            <elementProp name="surname" elementType="Argument">
+              <stringProp name="Argument.name">surname</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.value">AnySurname</stringProp>
+            </elementProp>
+            <elementProp name="username" elementType="Argument">
+              <stringProp name="Argument.name">username</stringProp>
+              <stringProp name="Argument.value">SuperUser</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="currency_code" elementType="Argument">
+              <stringProp name="Argument.name">currency_code</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.value">640</stringProp>
             </elementProp>
           </collectionProp>
         </Arguments>
+        <hashTree/>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell_PreProcessor" enabled="true">
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="script">import java.util.Random;
+
+chars = &quot;1234567890abcdefghiklmnopqrstuvwxyz-&quot;;
+int string_length=9;
+randomstring = &quot;&quot;;
+
+for(int i=0; i &lt; string_length; i++){
+	Random randomGenerator = new Random();
+	int randomInt = randomGenerator.nextInt(chars.length());
+	randomstring += chars.substring(randomInt,randomInt+1);
+}
+print(randomstring);
+vars.put(&quot;Random_Val&quot;,randomstring);
+</stringProp>
+          <stringProp name="TestPlan.comments">Generates Random Password</stringProp>
+        </BeanShellPreProcessor>
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1-Login" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
@@ -83,8 +129,8 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-  &quot;email&quot;: &quot;serghei.samoilic@gmail.com&quot;,&#xd;
-  &quot;password&quot;: &quot;77pQ0b7RG1Te&quot;&#xd;
+  &quot;email&quot;: &quot;${email}&quot;,&#xd;
+  &quot;password&quot;: &quot;${password}&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -133,13 +179,13 @@
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
-  &quot;currency_code&quot;: &quot;test&quot;,&#xd;
-  &quot;email&quot;: ${email},&#xd;
-  &quot;name&quot;: &quot;test&quot;,&#xd;
-  &quot;password_change&quot;: &quot;test123!&quot;,&#xd;
-  &quot;password_repeat&quot;: &quot;test123!&quot;,&#xd;
-  &quot;surname&quot;: &quot;test&quot;,&#xd;
-  &quot;username&quot;: &quot;test1234&quot;&#xd;
+  &quot;currency_code&quot;: &quot;${currency_code}&quot;,&#xd;
+  &quot;email&quot;: &quot;${Random_Val}${__Random(100,1000)}@mail.ru&quot;,&#xd;
+  &quot;name&quot;: &quot;${name}&quot;,&#xd;
+  &quot;password_change&quot;: &quot;${Random_Val}&quot;,&#xd;
+  &quot;password_repeat&quot;: &quot;${Random_Val}&quot;,&#xd;
+  &quot;surname&quot;: &quot;${surname}&quot;,&#xd;
+  &quot;username&quot;: &quot;${username}&quot;&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
@@ -158,7 +204,18 @@
             <boolProp name="HTTPSampler.md5">false</boolProp>
             <intProp name="HTTPSampler.ipSourceType">0</intProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+              <stringProp name="RegexExtractor.refname">Email_one</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;email&quot;:&quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default">No_Email</stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="3-GetOne_TC" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
@@ -178,7 +235,7 @@
                 <elementProp name="" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
                   <stringProp name="Argument.value">{&#xd;
-  &quot;email&quot;: ${email}&#xd;
+  &quot;email&quot;: &quot;${Email_one}&quot;&#xd;
 }</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                 </elementProp>
@@ -231,7 +288,7 @@
           <hashTree/>
         </hashTree>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
             <value class="SampleSaveConfiguration">
@@ -319,14 +376,6 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
       </PostThreadGroup>
       <hashTree>
-        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">testslotegrator.com</stringProp>
-          <stringProp name="HTTPSampler.protocol">https</stringProp>
-        </ConfigTestElement>
-        <hashTree/>
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
