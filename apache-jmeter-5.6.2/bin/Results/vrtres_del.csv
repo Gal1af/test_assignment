@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1708786818736,39,2-Delete,400,Bad Request,Remove_All_TG 1-3,text,false,,366,597,5,5,https://testslotegrator.com/api/automationTask/deleteOne/no_ID,39,0,0
+1708786818736,40,2-Delete,400,Bad Request,Remove_All_TG 1-4,text,false,,366,597,5,5,https://testslotegrator.com/api/automationTask/deleteOne/no_ID,40,0,0
+1708786818737,41,2-Delete,400,Bad Request,Remove_All_TG 1-2,text,false,,366,597,5,5,https://testslotegrator.com/api/automationTask/deleteOne/no_ID,41,0,0
+1708786818741,41,2-Delete,400,Bad Request,Remove_All_TG 1-5,text,false,,366,597,5,5,https://testslotegrator.com/api/automationTask/deleteOne/no_ID,41,0,0
+1708786818746,41,2-Delete,400,Bad Request,Remove_All_TG 1-1,text,false,,366,597,5,5,https://testslotegrator.com/api/automationTask/deleteOne/no_ID,41,0,0
